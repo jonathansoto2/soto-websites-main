@@ -1,0 +1,41 @@
+<form id="contact-form" class="card space-y-5 p-6" novalidate>
+  <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+  <input type="hidden" name="startedAt" id="startedAt" />
+  <div class="grid gap-5 sm:grid-cols-2">
+    <label class="block text-sm font-bold">Name<input required name="name" minlength="2" class="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 focus-ring" /></label>
+    <label class="block text-sm font-bold">Company<input required name="company" minlength="2" class="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 focus-ring" /></label>
+    <label class="block text-sm font-bold">Email<input required type="email" name="email" class="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 focus-ring" /></label>
+    <label class="block text-sm font-bold">Phone<input name="phone" inputmode="tel" class="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 focus-ring" /></label>
+    <label class="block text-sm font-bold">Business Website<input name="businessWebsite" type="url" placeholder="https://example.com" class="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 focus-ring" /></label>
+    <label class="block text-sm font-bold">Service Interested In<select required name="serviceInterestedIn" class="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 focus-ring"><option value="">Select one</option><option>Website Design</option><option>Website Redesign</option><option>Website Management</option><option>Email Marketing</option><option>Google Business Profile</option><option>Not sure yet</option></select></label>
+    <label class="block text-sm font-bold sm:col-span-2">Budget<select required name="budget" class="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 focus-ring"><option value="">Select one</option><option>Under $1,000</option><option>$1,000 - $2,500</option><option>$2,500 - $5,000</option><option>$5,000+</option><option>Monthly management plan</option><option>Not sure yet</option></select></label>
+  </div>
+  <label class="block text-sm font-bold">Message<textarea required name="message" minlength="10" rows="6" class="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 focus-ring" placeholder="Tell me what you need help with."></textarea></label>
+  <button class="w-full rounded-full bg-blue-700 px-6 py-4 font-black text-white transition hover:bg-blue-800 focus-ring" type="submit">Send Request</button>
+  <p id="form-status" class="text-sm font-semibold" role="status" aria-live="polite"></p>
+</form>
+<script>
+  const form = document.querySelector('#contact-form');
+  const status = document.querySelector('#form-status');
+  const startedAt = document.querySelector('#startedAt');
+  if (startedAt instanceof HTMLInputElement) {
+  startedAt.value = String(Date.now());
+}
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!(form instanceof HTMLFormElement) || !(status instanceof HTMLElement)) return;
+    if (!form.checkValidity()) { status.textContent = 'Please complete the required fields.'; status.className = 'text-sm font-semibold text-red-700'; form.reportValidity(); return; }
+    const submit = form.querySelector('button[type="submit"]');
+    submit?.setAttribute('disabled', 'true');
+    status.textContent = 'Sending...'; status.className = 'text-sm font-semibold text-slate-600';
+    const data = Object.fromEntries(new FormData(form).entries());
+    try {
+      const res = await fetch('/.netlify/functions/submit-lead', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.message || 'Unable to send.');
+      form.reset(); status.textContent = 'Message sent. I will follow up soon.'; status.className = 'text-sm font-semibold text-green-700';
+    } catch (error) {
+      status.textContent = error instanceof Error ? error.message : 'Unable to send right now.'; status.className = 'text-sm font-semibold text-red-700';
+    } finally { submit?.removeAttribute('disabled'); }
+  });
+</script>

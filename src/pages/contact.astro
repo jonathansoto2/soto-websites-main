@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/forms/ContactForm.astro';
+import CTASection from '../components/sections/CTA.astro';
+---
+
+<BaseLayout
+  title="Contact Soto Websites | Free Website Review"
+  description="Contact Soto Websites for a free website consultation or website review for your local business."
+>
+  <section class="section bg-white">
+    <div class="container max-w-4xl">
+      <p class="eyebrow mb-3">Contact</p>
+      <h1 class="h1">Get a free website review.</h1>
+      <p class="lead mt-6">
+        Tell me about your business and what you need. I’ll review your current website or help you plan a new one.
+      </p>
+    </div>
+  </section>
+
+  <section class="section bg-slate-50">
+    <div class="container max-w-4xl">
+      <ContactForm />
+    </div>
+  </section>
+
+  <CTASection />
+</BaseLayout>

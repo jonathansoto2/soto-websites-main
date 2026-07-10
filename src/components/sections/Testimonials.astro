@@ -1,0 +1,12 @@
+---
+import { testimonials } from '@/data/site';
+import SectionHeader from './SectionHeader.astro';
+---
+<section class="section bg-white">
+  <div class="container">
+    <SectionHeader eyebrow="Trust" title="Built for small business owners who need clear answers." center />
+    <div class="grid gap-5 md:grid-cols-3">
+      {testimonials.map((t) => <figure class="card p-6"><blockquote class="text-lg font-semibold leading-8 text-slate-800">“{t.quote}”</blockquote><figcaption class="mt-6 text-sm text-slate-500"><strong class="block text-slate-950">{t.name}</strong>{t.company}</figcaption></figure>)}
+    </div>
+  </div>
+</section>

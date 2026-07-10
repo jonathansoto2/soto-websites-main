@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTA from '../components/sections/CTA.astro';
+---
+
+<BaseLayout
+  title="Website Pricing | Soto Websites"
+  description="Explore website design and website management options from Soto Websites."
+>
+  <section class="section bg-white">
+    <div class="container max-w-5xl">
+      <p class="eyebrow mb-3">Pricing</p>
+      <h1 class="h1">Website solutions based on your business needs</h1>
+      <p class="lead mt-6">
+        Every business is different. Final pricing depends on the number of pages, features, content, integrations, and ongoing support required.
+      </p>
+
+      <div class="mt-12 grid gap-6 md:grid-cols-3">
+        <article class="card p-6">
+          <h2 class="h3">Starter Website</h2>
+          <p class="mt-3 text-slate-600">
+            A professional website for a small business that needs a strong and trustworthy online presence.
+          </p>
+        </article>
+
+        <article class="card p-6 ring-2 ring-blue-700">
+          <p class="text-sm font-semibold text-blue-700">Most Popular</p>
+          <h2 class="h3 mt-2">Growth Website</h2>
+          <p class="mt-3 text-slate-600">
+            A larger website with stronger conversion strategy, service pages, and ongoing website management.
+          </p>
+        </article>
+
+        <article class="card p-6">
+          <h2 class="h3">Custom Project</h2>
+          <p class="mt-3 text-slate-600">
+            Advanced websites with custom forms, dashboards, booking, automation, or business integrations.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <CTA />
+</BaseLayout>

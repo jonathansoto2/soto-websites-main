@@ -1,0 +1,29 @@
+{
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/check": "latest",
+    "@astrojs/sitemap": "latest",
+    "@netlify/functions": "^5.3.0",
+    "@tailwindcss/vite": "latest",
+    "astro": "latest",
+    "firebase-admin": "latest",
+    "resend": "latest",
+    "typescript": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "tailwindcss": "latest"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "type": "module",
+  "name": "soto-websites",
+  "version": "1.0.0",
+  "private": true
+}

@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProcessSteps from '../components/sections/ProcessSteps.astro';
+import CTA from '../components/sections/CTA.astro';
+---
+
+<BaseLayout
+  title="Our Website Process | Soto Websites"
+  description="Learn how Soto Websites plans, designs, builds, launches, and manages professional websites for local businesses."
+>
+  <section class="section bg-white">
+    <div class="container max-w-5xl">
+      <p class="eyebrow mb-3">Our Process</p>
+      <h1 class="h1">A clear process from idea to launch</h1>
+      <p class="lead mt-6">
+        We keep the website process organized, straightforward, and focused on your business goals.
+      </p>
+    </div>
+  </section>
+
+  <ProcessSteps />
+  <CTA />
+</BaseLayout>

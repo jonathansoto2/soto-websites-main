@@ -1,0 +1,12 @@
+---
+import { processSteps } from '@/data/site';
+import SectionHeader from './SectionHeader.astro';
+---
+<section class="section bg-slate-50">
+  <div class="container">
+    <SectionHeader eyebrow="Process" title="A simple process that keeps the project moving." text="Business owners should not have to guess what is happening. Each step has a clear purpose and outcome." center />
+    <div class="grid gap-5 md:grid-cols-5">
+      {processSteps.map((step, i) => <div class="card p-6"><div class="mb-5 grid h-10 w-10 place-items-center rounded-full bg-blue-700 font-black text-white">{i + 1}</div><h3 class="font-bold">{step.title}</h3><p class="mt-2 text-sm leading-6 text-slate-600">{step.text}</p></div>)}
+    </div>
+  </div>
+</section>

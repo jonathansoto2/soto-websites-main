@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FAQList from '../components/sections/FAQList.astro';
+import CTA from '../components/sections/CTA.astro';
+---
+
+<BaseLayout
+  title="Frequently Asked Questions | Soto Websites"
+  description="Answers to common questions about website design, website management, pricing, timelines, and working with Soto Websites."
+>
+  <section class="section bg-white">
+    <div class="container max-w-5xl">
+      <p class="eyebrow mb-3">Frequently Asked Questions</p>
+      <h1 class="h1">Questions about working with Soto Websites</h1>
+      <p class="lead mt-6">
+        Learn more about website projects, ongoing management, pricing, timelines, and support.
+      </p>
+    </div>
+  </section>
+
+  <FAQList />
+  <CTA />
+</BaseLayout>

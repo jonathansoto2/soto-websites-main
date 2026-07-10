@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Testimonials from '../components/sections/Testimonials.astro';
+import CTA from '../components/sections/CTA.astro';
+---
+
+<BaseLayout
+  title="Client Testimonials | Soto Websites"
+  description="Read what local businesses say about working with Soto Websites."
+>
+  <section class="section bg-white">
+    <div class="container max-w-5xl">
+      <p class="eyebrow mb-3">Testimonials</p>
+      <h1 class="h1">What clients say about working with us</h1>
+      <p class="lead mt-6">
+        Client reviews and project results will be added as Soto Websites completes more projects.
+      </p>
+    </div>
+  </section>
+
+  <Testimonials />
+  <CTA />
+</BaseLayout>

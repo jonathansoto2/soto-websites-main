@@ -1,0 +1,17 @@
+---
+import { brand, nav, services } from '@/data/site';
+---
+<footer class="border-t border-slate-200 bg-white">
+  <div class="container grid gap-10 py-12 md:grid-cols-4">
+    <div class="md:col-span-2">
+      <div class="mb-4 flex items-center gap-3 font-black"><span class="grid h-10 w-10 place-items-center rounded-2xl bg-blue-700 text-white">SW</span>{brand.name}</div>
+      <p class="max-w-md text-slate-600">{brand.description}</p>
+    </div>
+    <div><h2 class="mb-4 font-bold">Pages</h2>{nav.map((n) => <a class="mb-2 block text-sm text-slate-600 hover:text-blue-800" href={n.href}>{n.label}</a>)}</div>
+    <div><h2 class="mb-4 font-bold">Services</h2>{services.slice(0,3).map((s) => <a class="mb-2 block text-sm text-slate-600 hover:text-blue-800" href={s.slug}>{s.title}</a>)}</div>
+  </div>
+  <div class="container flex flex-col gap-3 border-t border-slate-200 py-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+    <p>© {new Date().getFullYear()} {brand.name}. All rights reserved.</p>
+    <p><a href="/privacy-policy" class="hover:text-blue-800">Privacy</a> · <a href="/terms" class="hover:text-blue-800">Terms</a></p>
+  </div>
+</footer>

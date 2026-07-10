@@ -1,0 +1,23 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Hero from '@/components/sections/Hero.astro';
+import ServicesGrid from '@/components/sections/ServicesGrid.astro';
+import ProcessSteps from '@/components/sections/ProcessSteps.astro';
+import Testimonials from '@/components/sections/Testimonials.astro';
+import FAQList from '@/components/sections/FAQList.astro';
+import CTA from '@/components/sections/CTA.astro';
+import ContactSection from '@/components/sections/ContactSection.astro';
+import SectionHeader from '@/components/sections/SectionHeader.astro';
+import { localBusinessSchema } from '@/lib/seo/schema';
+---
+<BaseLayout title="Soto Websites | Websites That Grow Local Businesses" schema={localBusinessSchema}>
+  <Hero />
+  <ServicesGrid />
+  <section class="section bg-slate-950 text-white"><div class="container grid gap-8 lg:grid-cols-3"><div class="lg:col-span-1"><p class="eyebrow mb-3 text-blue-200">Why choose us</p><h2 class="text-3xl font-black tracking-tight sm:text-4xl">A practical digital partner for local businesses.</h2></div><div class="grid gap-5 sm:grid-cols-2 lg:col-span-2"><div><h3 class="font-bold">Business-first strategy</h3><p class="mt-2 text-slate-300">Every page is designed around trust, clarity, and customer action.</p></div><div><h3 class="font-bold">Fast by default</h3><p class="mt-2 text-slate-300">Astro keeps the site lightweight with minimal JavaScript.</p></div><div><h3 class="font-bold">Built to expand</h3><p class="mt-2 text-slate-300">The same foundation can support forms, dashboards, blogs, CRM tools, and automation later.</p></div><div><h3 class="font-bold">Clear communication</h3><p class="mt-2 text-slate-300">No confusing tech talk. Just what matters for the business.</p></div></div></div></section>
+  <section class="section bg-white"><div class="container"><SectionHeader eyebrow="Portfolio" title="Work samples and case studies will live here." text="Use this section to show before-and-after redesigns, local business websites, landing pages, and management results." /><div class="grid gap-5 md:grid-cols-3">{['Contractor Website','Restaurant Website','Coach Website'].map((item)=><div class="card p-6"><div class="mb-5 aspect-video rounded-2xl bg-gradient-to-br from-blue-100 to-slate-200"></div><h3 class="h3">{item}</h3><p class="mt-2 text-slate-600">Placeholder project card with goals, services provided, and measurable outcome.</p></div>)}</div></div></section>
+  <ProcessSteps />
+  <Testimonials />
+  <FAQList />
+  <CTA />
+  <ContactSection />
+</BaseLayout>
