@@ -1,0 +1,35 @@
+---
+/*
+  Replace the URL below with your real Calendly event URL.
+  Example:
+  https://calendly.com/jonathan-soto/free-website-consultation
+*/
+const calendlyUrl = 'https://calendly.com/sotowebsites/30min';
+---
+<section class="section bg-slate-50" id="schedule">
+  <div class="container">
+    <div class="mx-auto mb-10 max-w-3xl text-center">
+      <p class="eyebrow mb-3">Free Website Consultation</p>
+      <h2 class="h2">Let's talk about what your business needs.</h2>
+      <p class="lead mt-4">
+        Schedule a free phone or video call. We can talk about your business, what you want your
+        website to accomplish, and which option makes the most sense.
+      </p>
+    </div>
+
+    <div class="mx-auto max-w-5xl overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+      <div
+        class="calendly-inline-widget"
+        data-url={`${calendlyUrl}?hide_gdpr_banner=1`}
+        style="min-width:320px;height:700px;"
+      ></div>
+    </div>
+  </div>
+
+  <script
+    is:inline
+    type="text/javascript"
+    src="https://assets.calendly.com/assets/external/widget.js"
+    async
+  ></script>
+</section>

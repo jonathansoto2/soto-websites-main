@@ -2,6 +2,8 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Hero from '@/components/sections/Hero.astro';
 import ServicesGrid from '@/components/sections/ServicesGrid.astro';
+import CalendlySection from '@/components/sections/CalendlySection.astro';
+import PortfolioShowcase from '@/components/sections/PortfolioShowcase.astro';
 import ProcessSteps from '@/components/sections/ProcessSteps.astro';
 import Testimonials from '@/components/sections/Testimonials.astro';
 import FAQList from '@/components/sections/FAQList.astro';
@@ -10,14 +12,102 @@ import ContactSection from '@/components/sections/ContactSection.astro';
 import SectionHeader from '@/components/sections/SectionHeader.astro';
 import { localBusinessSchema } from '@/lib/seo/schema';
 ---
-<BaseLayout title="Soto Websites | Websites That Grow Local Businesses" schema={localBusinessSchema}>
+<BaseLayout
+  title="Soto Websites | Affordable Websites for Local Businesses"
+  description="Professional small business websites starting at $349. Website design, redesign, scheduling, forms, automation, search setup, and ongoing website management."
+  schema={localBusinessSchema}
+>
   <Hero />
+
   <ServicesGrid />
-  <section class="section bg-slate-950 text-white"><div class="container grid gap-8 lg:grid-cols-3"><div class="lg:col-span-1"><p class="eyebrow mb-3 text-blue-200">Why choose us</p><h2 class="text-3xl font-black tracking-tight sm:text-4xl">A practical digital partner for local businesses.</h2></div><div class="grid gap-5 sm:grid-cols-2 lg:col-span-2"><div><h3 class="font-bold">Business-first strategy</h3><p class="mt-2 text-slate-300">Every page is designed around trust, clarity, and customer action.</p></div><div><h3 class="font-bold">Fast by default</h3><p class="mt-2 text-slate-300">Astro keeps the site lightweight with minimal JavaScript.</p></div><div><h3 class="font-bold">Built to expand</h3><p class="mt-2 text-slate-300">The same foundation can support forms, dashboards, blogs, CRM tools, and automation later.</p></div><div><h3 class="font-bold">Clear communication</h3><p class="mt-2 text-slate-300">No confusing tech talk. Just what matters for the business.</p></div></div></div></section>
-  <section class="section bg-white"><div class="container"><SectionHeader eyebrow="Portfolio" title="Work samples and case studies will live here." text="Use this section to show before-and-after redesigns, local business websites, landing pages, and management results." /><div class="grid gap-5 md:grid-cols-3">{['Contractor Website','Restaurant Website','Coach Website'].map((item)=><div class="card p-6"><div class="mb-5 aspect-video rounded-2xl bg-gradient-to-br from-blue-100 to-slate-200"></div><h3 class="h3">{item}</h3><p class="mt-2 text-slate-600">Placeholder project card with goals, services provided, and measurable outcome.</p></div>)}</div></div></section>
-  <ProcessSteps />
-  <Testimonials />
+
+  <CalendlySection />
+
+ 
+
+  <section class="section bg-white">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Website Redesign"
+        title="Already have a website that needs an upgrade?"
+        text="If your current website looks outdated, is difficult to use on a phone, is confusing to customers, or does not clearly explain what your business offers, I can rebuild it around the actions you want customers to take."
+      />
+
+      <div class="grid gap-5 md:grid-cols-3">
+        <div class="card p-6">
+          <h3 class="h3">Modern Design</h3>
+          <p class="mt-3 text-slate-600">
+            Give your business a cleaner, more professional online presence.
+          </p>
+        </div>
+
+        <div class="card p-6">
+          <h3 class="h3">Better Customer Flow</h3>
+          <p class="mt-3 text-slate-600">
+            Make it obvious how customers should call, request a quote, schedule, or contact you.
+          </p>
+        </div>
+
+        <div class="card p-6">
+          <h3 class="h3">Search & Analytics Setup</h3>
+          <p class="mt-3 text-slate-600">
+            Improve the technical foundation for Google search, analytics, and modern AI search tools.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<PortfolioShowcase />
+
+ <section class="section bg-slate-950 text-white">
+    <div class="container grid gap-10 lg:grid-cols-3">
+      <div class="lg:col-span-1">
+        <p class="eyebrow mb-3 text-blue-200">Why it matters</p>
+        <h2 class="text-3xl font-black tracking-tight sm:text-4xl">
+          Your website should make running your business easier.
+        </h2>
+      </div>
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:col-span-2">
+        <div>
+          <h3 class="font-bold">Make a strong first impression</h3>
+          <p class="mt-2 text-slate-300">
+            Customers often look at your website before they call. A professional site helps your
+            business look established, trustworthy, and easy to work with.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-bold">Turn visitors into customers</h3>
+          <p class="mt-2 text-slate-300">
+            Clear calls to action, quote forms, phone buttons, and appointment scheduling make it
+            easier for potential customers to take the next step.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-bold">Be easier to understand online</h3>
+          <p class="mt-2 text-slate-300">
+            Your website can be structured so Google and AI-powered search tools can clearly
+            understand your business, services, location, and contact information.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-bold">Stop worrying about website maintenance</h3>
+          <p class="mt-2 text-slate-300">
+            With monthly management, I can handle updates, hosting, content changes, forms,
+            integrations, analytics, and keeping the site working while you focus on your business.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <FAQList />
   <CTA />
+
+  <!-- Keep the contact form as a secondary option for people who do not want to schedule a call. -->
   <ContactSection />
 </BaseLayout>

@@ -1,15 +1,116 @@
 ---
-import { services } from '@/data/site';
 import SectionHeader from './SectionHeader.astro';
+
+const plans = [
+  {
+    name: 'Basic Website',
+    price: '$349',
+    description: 'For a business that needs a clean, professional website and a strong online presence.',
+    features: [
+      '2–5 page website',
+      'Mobile-friendly design',
+      'Business photos and images',
+      'Original website content',
+      'Contact and call-to-action buttons',
+      'Google Business Profile setup/connection',
+      'Google Analytics',
+      'Google Search Console',
+      'Basic SEO and search-friendly setup',
+      'Search & AI-friendly business information',
+    ],
+    maintenance: '$50/month optional management',
+  },
+  {
+    name: 'Business Website',
+    price: '$500',
+    description: 'For a business that needs its website to collect information and help automate customer contact.',
+    features: [
+      'Everything in Basic Website',
+      'Appointment scheduling setup',
+      'Custom contact or quote forms',
+      'Customer data collection',
+      'Automated email notifications',
+      'Automated text-message integrations',
+      'Custom business forms',
+      'Additional website functionality',
+    ],
+    maintenance: '$99/month optional management',
+    featured: true,
+  },
+  {
+    name: 'Custom Business Website',
+    price: '$1,000+',
+    description: 'For businesses that need a custom website or web system beyond a standard marketing site.',
+    features: [
+      'Everything in Business Website',
+      'Customer or client accounts',
+      'User profiles',
+      'Database setup',
+      'Messaging systems',
+      'Secure file storage options',
+      'Online payments',
+      'Custom dashboards',
+      'Business automation',
+      'Custom integrations',
+    ],
+    maintenance: 'Starting at $150/month management',
+  },
+];
 ---
-<section class="section bg-white">
+<section class="section bg-white" id="pricing">
   <div class="container">
-    <SectionHeader eyebrow="Services" title="Digital services built around leads, trust, and repeat business." text="Start with a better website, then expand into management, email marketing, SEO, and ads when the foundation is ready." />
-    <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-      {services.map((service) => <a href={service.slug} class="card p-6 transition hover:-translate-y-1 hover:shadow-lg">
-        <h3 class="h3">{service.title}</h3><p class="mt-3 text-slate-600">{service.description}</p>
-        <span class="mt-5 inline-block text-sm font-bold text-blue-700">Learn more →</span>
-      </a>)}
+    <SectionHeader
+      eyebrow="Website Pricing"
+      title="Simple pricing based on what your business needs."
+      text="Start with a professional website, then add scheduling, automation, customer accounts, databases, and other tools only when they actually help your business."
+      center
+    />
+
+    <div class="grid gap-6 lg:grid-cols-3">
+      {plans.map((plan) => (
+        <article
+          class:list={[
+            'card flex h-full flex-col p-7',
+            plan.featured && 'border-2 border-blue-700 shadow-xl'
+          ]}
+        >
+          {plan.featured && (
+            <p class="mb-4 text-sm font-black uppercase tracking-[0.15em] text-blue-700">
+              Most Popular
+            </p>
+          )}
+
+          <h3 class="text-2xl font-black text-slate-950">{plan.name}</h3>
+          <p class="mt-3 text-4xl font-black tracking-tight text-slate-950">{plan.price}</p>
+          <p class="mt-4 leading-7 text-slate-600">{plan.description}</p>
+
+          <ul class="mt-6 flex-1 space-y-3">
+            {plan.features.map((feature) => (
+              <li class="flex gap-3 text-sm leading-6 text-slate-700">
+                <span class="font-black text-blue-700">✓</span>
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div class="mt-7 rounded-2xl bg-slate-50 p-4">
+            <p class="text-sm font-bold text-slate-950">{plan.maintenance}</p>
+          </div>
+
+          <a
+            href="#schedule"
+            class="mt-6 inline-flex items-center justify-center rounded-full bg-blue-700 px-5 py-3 text-sm font-bold text-white transition hover:bg-blue-800 focus-ring"
+          >
+            Schedule a Free Call
+          </a>
+        </article>
+      ))}
     </div>
+
+    <p class="mx-auto mt-8 max-w-3xl text-center text-sm leading-6 text-slate-500">
+      Pricing is based on typical projects. Custom features may change the final project price.
+      Third-party services such as texting, payment processing, premium scheduling, or other software
+      may have their own fees.
+    </p>
   </div>
 </section>
